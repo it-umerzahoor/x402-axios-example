@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - testing
 
 permissions:
   contents: write
@@ -46,7 +47,7 @@ jobs:
         run: npx semantic-release
 
       - name: Upload Built Binaries to GitHub Release
-        if: github.ref_name == 'main'
+        if: github.ref_name == 'testing'
         uses: softprops/action-gh-release@v1
         with:
           files: |
